@@ -25,7 +25,7 @@
       </a>
       <nav class="site">
         <a href="/privacy/">Privacy</a>
-        <a href="mailto:support@cartlet.app">Contact</a>
+        <a href="mailto:help@cartlet.app">Contact</a>
       </nav>
     </div>
   </header>
@@ -44,7 +44,7 @@
             <a class="cta cta-secondary" href="#features">What's inside</a>
           </div>
         </div>
-        <div class="shot-frame">
+        <div class="shot-frame reveal">
           <img src="/screen-list.png" alt="Cartlet's main shopping list view" />
         </div>
       </div>
@@ -52,31 +52,31 @@
 
     <section class="features" id="features">
       <div class="container">
-        <h2>Made for the way you actually shop.</h2>
-        <p class="sub">No accounts required to start. Sign in only when you want to share a list with someone.</p>
+        <h2 class="reveal">Made for the way you actually shop.</h2>
+        <p class="sub reveal">No accounts required to start. Sign in only when you want to share a list with someone.</p>
 
         <div class="feature-grid">
-          <div class="feature">
+          <div class="feature reveal">
             <h3>Share a list, not a doc</h3>
             <p>Invite a partner, a roommate, a parent. Everyone sees adds and checks in real time. No exports, no copy-paste.</p>
           </div>
-          <div class="feature">
+          <div class="feature reveal">
             <h3>Recipes you reuse</h3>
             <p>Save the recipes you make often. Add some or all of the ingredients to your list with a tap.</p>
           </div>
-          <div class="feature">
+          <div class="feature reveal">
             <h3>Smart suggestions, no catalog</h3>
             <p>Cartlet learns from what you've added before — so the second loaf of sourdough takes one tap, not three.</p>
           </div>
-          <div class="feature">
+          <div class="feature reveal">
             <h3>Quiet design</h3>
             <p>No ads. No nudges. No streaks. Just a list, a few chips, and the occasional sense of accomplishment.</p>
           </div>
-          <div class="feature">
+          <div class="feature reveal">
             <h3>Works offline</h3>
             <p>Add items on the train, in the basement aisle, anywhere. Everything syncs the moment you reconnect.</p>
           </div>
-          <div class="feature">
+          <div class="feature reveal">
             <h3>Your data, yours</h3>
             <p>Sign out any time. Delete your account and every byte goes with it. We don't sell or share your data.</p>
           </div>
@@ -86,13 +86,13 @@
 
     <section class="showcase">
       <div class="container">
-        <h2>A look around.</h2>
-        <p class="sub">Type a few letters, pick from suggestions, and get on with your day.</p>
+        <h2 class="reveal">A look around.</h2>
+        <p class="sub reveal">Type a few letters, pick from suggestions, and get on with your day.</p>
         <div class="showcase-row">
-          <div class="shot-frame">
+          <div class="shot-frame reveal">
             <img src="/screen-autocomplete.png" alt="Typing an item with autocomplete suggestions" />
           </div>
-          <div class="shot-frame">
+          <div class="shot-frame reveal">
             <img src="/screen-recipes.png" alt="The recipes screen, showing saved recipes" />
           </div>
         </div>
@@ -105,9 +105,29 @@
       <div>&copy; Cartlet</div>
       <div>
         <a href="/privacy/">Privacy</a>
-        <a href="mailto:support@cartlet.app">support@cartlet.app</a>
+        <a href="mailto:help@cartlet.app">help@cartlet.app</a>
       </div>
     </div>
   </footer>
+
+  <script>
+    (() => {
+      const header = document.querySelector('header.site');
+      const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 4);
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+
+      const io = new IntersectionObserver((entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            e.target.classList.add('in');
+            io.unobserve(e.target);
+          }
+        }
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+      document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+    })();
+  </script>
 </body>
 </html>
