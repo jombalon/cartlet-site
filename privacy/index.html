@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy — Cartlet</title>
+  <meta name="description" content="What Cartlet collects, why, and how it's stored." />
+  <link rel="icon" href="/icon.png" />
+  <link rel="apple-touch-icon" href="/icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="site">
+    <div class="container row">
+      <a class="brand" href="/">
+        <img src="/icon.png" alt="" />
+        Cartlet
+      </a>
+      <nav class="site">
+        <a href="/">Home</a>
+        <a href="mailto:support@cartlet.app">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article class="privacy container">
+      <h1>Privacy Policy</h1>
+      <p class="effective">Effective date: 2026-05-10</p>
+
+      <p>This privacy policy explains what Cartlet collects, why, and how it's stored.</p>
+
+      <h2>What we collect</h2>
+      <p>Cartlet only collects what's needed to run the app. Specifically:</p>
+      <ul>
+        <li><strong>Account info from Google Sign-In</strong> (only if you sign in): your Google display name, email address, and profile photo URL. We use these to label you in shared lists and to authenticate you with our backend.</li>
+        <li><strong>Your shopping list and recipe data</strong>: items, quantities, units, recipe names, ingredient names, and the time each was added. Stored in the cloud (Firebase Firestore) only when you're signed in. Otherwise it stays on your device.</li>
+        <li><strong>List membership and invites</strong> (only if you share a list): the email addresses you invite, plus the display name / photo / email of people who join your lists, so we can render member avatars.</li>
+        <li><strong>Crash reports</strong> (Firebase Crashlytics): device model, OS version, stack traces. Used to fix bugs. No personally identifiable content from your lists is included.</li>
+      </ul>
+      <p>We do <strong>not</strong> collect: location, contacts, photos from your device's gallery, microphone, calendar, or any advertising identifier.</p>
+
+      <h2>How it's used</h2>
+      <ul>
+        <li>Your list and recipe data is shown only to you and to people you've explicitly invited to a shared list.</li>
+        <li>Account info appears only on lists you're a member of.</li>
+        <li>Crash data is read by us (the app authors) for debugging.</li>
+      </ul>
+      <p>We do not sell or share your data with third parties for advertising.</p>
+
+      <h2>Where it's stored</h2>
+      <ul>
+        <li><strong>On your device</strong>: Android Room (SQLite) and DataStore preferences.</li>
+        <li><strong>In the cloud</strong> (signed-in users only): Firebase Firestore, hosted by Google. Data in transit is encrypted via HTTPS. Firestore enforces per-document access rules so only members of a shared list can read it.</li>
+      </ul>
+
+      <h2>Your rights and controls</h2>
+      <ul>
+        <li><strong>Sign out</strong> at any time from the account menu. Local data stays on your device but no further sync happens.</li>
+        <li><strong>Delete your account and all your data</strong> from the in-app help dialog. This permanently:
+          <ul>
+            <li>Deletes every shared list you own (other members lose access).</li>
+            <li>Removes you from any shared list you're a member of.</li>
+            <li>Cancels any pending invites you sent.</li>
+            <li>Deletes your Firebase Auth account.</li>
+          </ul>
+        </li>
+        <li><strong>Export your data</strong>: not implemented in-app yet. Email us at the address below if you need a copy.</li>
+      </ul>
+
+      <h2>Data retention</h2>
+      <p>We keep your cloud-side data for as long as your account exists. Once you delete your account, the data is removed promptly and is unrecoverable.</p>
+
+      <h2>Children</h2>
+      <p>Cartlet is not directed at children under 13. We don't knowingly collect data from anyone under 13.</p>
+
+      <h2>Contact</h2>
+      <p>Questions or concerns: <a href="mailto:support@cartlet.app">support@cartlet.app</a>.</p>
+
+      <h2>Changes</h2>
+      <p>If we change this policy, we'll update the effective date above.</p>
+    </article>
+  </main>
+
+  <footer class="site">
+    <div class="container row">
+      <div>&copy; Cartlet</div>
+      <div>
+        <a href="/">Home</a>
+        <a href="mailto:support@cartlet.app">support@cartlet.app</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
